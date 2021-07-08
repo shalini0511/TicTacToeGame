@@ -8,7 +8,6 @@ namespace TicTacToeGame
 {
     class Program
     {
-        private static bool board;
 
         public static char[]  Initializing()
         {
@@ -16,6 +15,7 @@ namespace TicTacToeGame
             for (int i=0;i<board.Length;i++)
             {
                 board[i] =' ';
+                
             }
             return board;
             
@@ -30,24 +30,24 @@ namespace TicTacToeGame
         
            
         
-        public static void  Display()
+        public static void  Display(char[] board)
         {
-            char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", arr[1], arr[2], arr[3]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", board[1], board[2], board[3]);
 
             Console.WriteLine("_____|_____|_____ ");
 
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", arr[4], arr[5], arr[6]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", board[4], board[5], board[6]);
 
             Console.WriteLine("_____|_____|_____ ");
 
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", arr[7], arr[8], arr[9]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", board[7], board[8], board[9]);
 
             Console.WriteLine("     |     |      ");
         }
@@ -58,8 +58,10 @@ namespace TicTacToeGame
             char[] board = Initializing();
             char letter = Choosing();
             Console.WriteLine(letter);
-            Program.Display();
+            Program.Display(board);
             Console.ReadLine();
         }
+
+       
     }
 }
