@@ -24,12 +24,39 @@ namespace TicTacToeGame
         public static char Choosing()
         {
             Console.WriteLine("choose option:");
-            string letter = Console.ReadLine();
-            return char.ToUpper(letter[0]);
+            char player = Convert.ToChar(Console.ReadLine());
+            return player;
+          
+                 
+
         }
-        
-           
-        
+        public static char ComputerInput(char player)
+        {
+            Char computer;
+            if (player == 'X' || player == 'x')
+            {
+                computer = Convert.ToChar(Convert.ToInt32(player) - 9);
+            }
+
+            else if (player == 'O' || player == 'o')
+            {
+                computer = Convert.ToChar(Convert.ToInt32(player) + 9);
+
+            }
+            else
+            {
+                Console.WriteLine("Invalid player Option! Please try Again!");
+                return default;
+            }
+
+            Console.WriteLine("Player has chosen: {0} and computer has chosen: {1}", player, computer);
+            return (computer);
+        }
+
+
+
+
+
         public static void  Display(char[] board)
         {
             
@@ -51,13 +78,34 @@ namespace TicTacToeGame
 
             Console.WriteLine("     |     |      ");
         }
+        public static void Position(char[] board,char player)
+        {
+            while(true)
+            {
+                Console.WriteLine("Enter position from 1 to 9:");
+                int pos = Convert.ToInt32(Console.ReadLine());
+                if (board[pos]==' ')
+                {
+                    board[pos] = player;
+                    break;
+
+                }
+                else
+                {
+                    Console.WriteLine("Position already Occupied");
+                }
+            }
+        }
         
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Tic Tac Toe");
             Program.Initializing();
             char[] board = Initializing();
-            char letter = Choosing();
-            Console.WriteLine(letter);
+            char player = Choosing();
+            char computer = ComputerInput(player);
+            Program.Display(board);
+            Position(board, player);
             Program.Display(board);
             Console.ReadLine();
         }
