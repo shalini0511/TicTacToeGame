@@ -10,7 +10,7 @@ namespace TicTacToeGame
     {
         public static void Initializing()
         {
-            char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+            char[] arr = { '0','1', '2', '3', '4', '5', '6', '7', '8', '9'};
             Console.WriteLine("     |     |      ");
 
             Console.WriteLine("  {0}  |  {1}  |  {2}", arr[1], arr[2], arr[3]);
